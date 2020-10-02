@@ -226,6 +226,13 @@ class session:
         except:
             pass
 
+    def yeet_obstacle(self,obj):
+        try:
+            self.__objectList.remove(obj)
+        except:
+        	print("Not able to yeet!")
+            pass
+
     def check_c(self):
         #print(self.__shieldt)
         if self.__shieldc== True:
@@ -237,6 +244,10 @@ class session:
     def decshield(self):
         if self.__shieldc == True:
             self.__shieldt -=1
+
+    def reduce_shield(self):
+        if self.__shieldc:
+            self.__shieldt -= 1
 
     def __collision(self, obj1, obj2):
         if self.__lives<-3:
