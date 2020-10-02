@@ -53,7 +53,27 @@ class stuff:
         
         
         return self._x, self._y
-         
+      
+    def new_get_posit(self,speedBoost):
+        self._y += self._uy + self._ay/2
+        self._x += self._ux + self._ax/2
+        self._ux += self._ax
+
+        self._x = max(self._x, self._minx)
+        self._x = min(self._x, self._maxx)
+
+        if self._y == self._maxy:
+            self._uy = min(self._uy, 0)
+        if self._y == self._miny:
+            self._uy = max(self._uy, 0)
+        elif self._y < self._miny:
+            self._y = self._miny
+		
+		self._uy += self._ay
+        self._y = min(self._y, self._maxy)
+        
+        return self._x, self._y
+
 class bullets(stuff):
     def __init__(self, x, y):
         super().__init__()
@@ -69,3 +89,4 @@ class shell(bullets):
         self._shape = ['=>']
         self._width = 2
         self._ux = 2.5 
+

@@ -68,6 +68,9 @@ class mandalorian(character):
     def get_posi(self):
         return self._x,self._y,self._width     
 
+    def current_get_posi(self):
+        return self._x, self._y, self._width     
+
     def activate_shield(self, time):
         if self._shieldActive == False:
             self._shieldRemaining = time
